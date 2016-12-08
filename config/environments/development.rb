@@ -19,7 +19,8 @@ Hours::Application.configure do
   end
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

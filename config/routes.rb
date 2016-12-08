@@ -19,6 +19,10 @@ class SubdomainBlank
 end
 
 Hours::Application.routes.draw do
+  if Rails.env.development?
+   mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   if Hours.single_tenant_mode?
     root "projects#index"
     draw :subdomain_present
