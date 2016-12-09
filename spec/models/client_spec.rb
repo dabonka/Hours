@@ -23,6 +23,7 @@ describe Client do
 
   describe "associations" do
     it { should have_many :projects }
+    it { should have_many :offices }
   end
 
   describe "#by_name" do

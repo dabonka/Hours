@@ -1,7 +1,15 @@
-= simple_form_for(@client) do |f|
-  = f.error_notification
+= simple_form_for(@client) do |client_form|
+  = client_form.error_notification
   .form-inputs
-    = f.input :name, required: true, autofocus: true
-    = f.input :description, required: false
-    = f.input :logo, as: :file
-    = f.button :submit
+    = client_form.input :name, required: true, autofocus: true
+    = client_form.input :description, required: false
+    = client_form.input :logo, as: :file
+    %h3 Office
+    = client_form.simple_fields_for :offices do |child_form|
+      = child_form.input :name, label: 'Office name'
+      = child_form.input :country, required: true
+      = child_form.input :town, required: true
+      = child_form.input :postindex, required: true
+      = child_form.input :address, required: true
+      = child_form.input :note
+    = client_form.button :submit

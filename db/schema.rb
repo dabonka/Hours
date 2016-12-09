@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224115957) do
+ActiveRecord::Schema.define(version: 20161208130833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,20 @@ ActiveRecord::Schema.define(version: 20150224115957) do
   add_index "mileages", ["date"], name: "index_mileages_on_date", using: :btree
   add_index "mileages", ["project_id"], name: "index_mileages_on_project_id", using: :btree
   add_index "mileages", ["user_id"], name: "index_mileages_on_user_id", using: :btree
+
+  create_table "offices", force: :cascade do |t|
+    t.integer  "client_id"
+    t.string   "name",       default: "", null: false
+    t.string   "country",    default: "", null: false
+    t.string   "town",       default: "", null: false
+    t.string   "postindex",  default: "", null: false
+    t.string   "address",    default: "", null: false
+    t.text     "note",       default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "offices", ["client_id"], name: "index_offices_on_client_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",        default: "",    null: false

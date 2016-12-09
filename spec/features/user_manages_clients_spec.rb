@@ -78,6 +78,19 @@ feature "User manages clients" do
     expect(page).to have_text(project1.name)
   end
 
+  scenario "creates a client with an office" do
+    visit clients_url(subdomain: subdomain)
+    fill_in "* Name", with: "Facebook"
+    fill_in "* Office name", with: "My office"
+    fill_in "* Country", with: "My country"
+    fill_in "* Town", with: "My town"
+    fill_in "* Postindex", with: "My postindex"
+    fill_in "* Address", with: "My address"
+    fill_in "Note", with: "My note"
+    click_button('Create Client')
+    expect(page).to have_content "Client successfully created"
+  end
+
   def create_client(name, description="")
     visit clients_url(subdomain: subdomain)
     fill_in "Name", with: name

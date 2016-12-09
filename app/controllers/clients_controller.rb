@@ -8,6 +8,7 @@ class ClientsController < ApplicationController
 
   def index
     @client = Client.new
+    @client.offices << Office.new
     @clients = Client.by_name
   end
 
@@ -40,6 +41,6 @@ class ClientsController < ApplicationController
   end
 
   def client_params
-    params.require(:client).permit(:name, :description, :logo)
+    params.require(:client).permit(:name, :description, :logo, offices_attributes: [ :name, :country, :town, :postindex, :address, :note ]) 
   end
 end

@@ -13,6 +13,7 @@
             \#{t('tags.show.hours_indication_title', count: EntryStats.new(@client.hours).total_hours)}
           %p
             = @client.description
+            = link_to "Offices", offices_path
       = render "/time_span"
       .charts
         = render @time_series.chart, time_series: @time_series

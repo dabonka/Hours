@@ -1,0 +1,11 @@
+= simple_form_for(@office) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :client_id, collection: Client.all
+    = f.input :name, required: true
+    = f.input :country, required: true
+    = f.input :town, required: true
+    = f.input :postindex, required: true
+    = f.input :address, required: true
+    = f.input :note, as: :text
+    = f.button :submit

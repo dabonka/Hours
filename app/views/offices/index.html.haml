@@ -1,0 +1,21 @@
+.outer
+  .container
+    %h1 List of offices
+    %table
+      %tr
+        %th Office
+        %th Country
+        %th Town
+        %th Address
+        %th Client ID
+        %th 
+        %th
+      - @offices.each do |office|
+        %tr
+          %td= office.name
+          %td= office.country
+          %td= office.town
+          %td= office.address
+          %td= office.client_id
+          %td= link_to("Edit", edit_office_path(office) )
+          %td= link_to("Delete",office_path(office), method: :delete, data: { confirm: 'Are you sure?' })
