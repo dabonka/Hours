@@ -19,7 +19,9 @@ class Client < ActiveRecord::Base
   scope :by_name, -> { order("lower(name)") }
   scope :by_last_updated, -> { order("clients.updated_at DESC") }
   has_many :projects
-
+  has_many :offices
+  accepts_nested_attributes_for :offices, :reject_if => :all_blank, :allow_destroy => true
+  
   has_many :hours, through: :projects
   has_many :mileages, through: :projects
 

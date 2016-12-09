@@ -19,6 +19,12 @@ class SubdomainBlank
 end
 
 Hours::Application.routes.draw do
+  get 'offices/index'
+
+  get 'offices/show'
+
+  get 'offices/edit'
+
   if Rails.env.development?
    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

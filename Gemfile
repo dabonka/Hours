@@ -12,7 +12,7 @@ gem "high_voltage"
 gem "jquery-rails", "~> 4.0"
 gem "neat"
 gem "bitters"
-gem "pg"
+gem 'pg'
 gem "rack-timeout"
 gem "rails", "~> 4.2.5"
 gem "recipient_interceptor"
