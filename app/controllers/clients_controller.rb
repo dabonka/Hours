@@ -1,3 +1,5 @@
+include TimeSeriesInitializer
+
 class ClientsController < ApplicationController
   def show
     @projects = resource.projects.by_last_updated.page(params[:page]).per(3)
